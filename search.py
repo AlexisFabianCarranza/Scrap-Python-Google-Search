@@ -1,4 +1,5 @@
 import urllib
+import re
 import requests
 from bs4 import BeautifulSoup
 
@@ -16,7 +17,7 @@ resp = requests.get(URL, headers=headers)
 print(query)
 if resp.status_code == 200:
     soup = BeautifulSoup(resp.content, "html.parser") 
-    print(soup.find_all("span", class_="DFlfde SwHCTb"))
+    print(soup.find_all("div", class_=re.compile("vk_c card-section")))
     #results = []
     #for g in soup.find_all('div', class_='sfgbx'):
     #    print(g)
